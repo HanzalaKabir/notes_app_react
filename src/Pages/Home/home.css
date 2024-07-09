@@ -1,0 +1,12 @@
+.NoteCard{
+    /* border: 1px solid red; */
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 1em;
+}
+.pinnedNotesHeading{
+  padding-left: 1em;
+}
+.otherNotesHeading{
+    padding-left: 1em;
+}

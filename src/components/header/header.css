@@ -1,0 +1,21 @@
+.header{
+    padding-left: 0.7em;
+    /* padding-top: 0.7em; */
+}
+.headerLogoContainer{
+    width: 5%;
+    height: 5em;
+}
+.headerLogo{
+    width: 100%;
+    height: 100%;
+    object-fit:contain;
+}
+.titleContainer{
+    width: 17em;
+}
+.titleLogo{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}

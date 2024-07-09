@@ -1,0 +1,19 @@
+.footer{
+    text-align: center;
+    bottom: 0;
+    width: 100%;
+    z-index: -1;
+    margin-top: 1em;
+}
+.watermark{
+    font-size: 1.5em;
+}
+.footerLogo{
+    margin: 0.5em;
+}
+.logoContainer{
+    padding-top: 0.5em;
+}
+.footerIcon{
+    width: 2.5em;
+}

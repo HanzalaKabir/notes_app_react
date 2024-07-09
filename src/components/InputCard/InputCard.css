@@ -1,0 +1,36 @@
+.inputCard{
+   width: 100%;
+   display: flex;
+   justify-content: center;
+   height: 100%;
+   padding-top: 2em;
+}
+.input{
+    font-size: 1em;
+    border: none;
+    border-radius: 0.2em;
+    width: 25em;
+    padding: 0.3em;
+}
+.titleInput:focus{
+    outline: none;
+}
+.noteInput{
+    height: 7em;
+    resize: none;   
+}
+.noteInput:focus{
+    outline: none;
+}
+.noteTitleContainer{
+   position: relative;
+   display: flex;
+   flex-direction: column;
+   border: 1px solid black;
+   border-radius: 0.2em;
+}
+.addButton{
+    position: absolute;
+    bottom: 0em;
+    right: 0em;
+}

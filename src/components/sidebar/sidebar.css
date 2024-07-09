@@ -1,0 +1,24 @@
+.sidebar{
+    padding-left: 0.5em;
+}
+.btn{
+    font-size: 1.2em;
+    text-decoration: none;
+    width: 10em;
+    height: 3em;
+    align-items: center;
+    border-top-right-radius: 5em;
+    border-bottom-right-radius: 5em;
+    display: flex;
+    padding: 1em;
+    margin-top: 0.6em;
+    font-weight: 900;
+    color: black;
+}
+.icon{
+    margin-right: 0.3em;
+}
+.btn-active{
+    background-color: #2563eb;
+    color: white;
+}

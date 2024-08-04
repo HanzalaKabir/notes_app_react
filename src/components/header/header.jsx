@@ -8,7 +8,8 @@ export const Header = () => {
   const [showModal, setShowModal] = useState(false);
 
   const handleProfileClick = () => {
-    setShowModal(true);
+    const val=showModal;
+    setShowModal(!val);
   };
 
   return (

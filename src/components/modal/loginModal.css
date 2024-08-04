@@ -1,35 +1,89 @@
 .modal-container {
   border: 2px solid black;
   display: inline-block;
-  background-color: white;
+  background-color: #fafafa;
+  box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.3);
   position: absolute;
   right: 1px;
-  width: 15rem;
+  width: 25rem;
+  height: auto;
+  z-index: 2;
+  border-radius: 4px;
 }
 
 .label {
   display: block;
 }
 
-.login {
+.login-signup-selector{
+display: flex;
+box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.3);
+margin-bottom: 2rem;
+}
+
+.selector {
   text-align: center;
-  background-color: #fc6c28;
-  color: white;
+  width: 100%;
   height: 3rem;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 2.3rem;
   padding: 2rem;
-  box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.3);
-  margin-bottom: 1rem;
 }
 
-.login-input {
-  width: 80%;
+.btn-submit{
+  width: 50%;
+  background-color: #fc6c28;
+  color: white;
+  font-size: 1.5rem;
+  padding: .5rem;
+  border-radius: 4px;
+}
+
+.btn-submit-container{
+  display: flex;
+  justify-content: center;
   align-items: center;
+  margin-bottom: 1rem;
+  border: none;
+  width: 100%;
 }
 
-.username {
-  margin-bottom: 1rem;
+.login-btn-active{
+  background-color: #fc6c28;
+  color: white;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.username input, .password input, .email input, .number input{
+  margin-bottom: 2rem;
+  border: none;
+  border-bottom: 1px solid black;
+}
+
+.login-input{
+width: 20rem;
+height: 1.5rem;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.user-profile{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }

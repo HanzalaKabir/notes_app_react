@@ -27,14 +27,6 @@ export const Sidebar = () => {
 
       <NavLink
         className={({ isActive }) => `${isActive ? "btn-active" : ""} btn`}
-        to="/important"
-      >
-        <MdLabelImportant className="icon" size="20" />
-        Important
-      </NavLink>
-
-      <NavLink
-        className={({ isActive }) => `${isActive ? "btn-active" : ""} btn`}
         to="/bin"
       >
         <ImBin2 className="icon" size="20" />

@@ -1,15 +1,17 @@
 import "./header.css";
 import appLogo from "../../assets/logo.png";
 import titleLogo from "../../assets/heading.png";
-import { useState } from "react";
 import { LoginModal } from "../modal/loginModal";
+import { useAccessToken } from "../../Context";
 
 export const Header = () => {
-  const [showModal, setShowModal] = useState(false);
+  const {showModal, setShowModal,accessToken}=useAccessToken();
 
   const handleProfileClick = () => {
-    const val=showModal;
-    setShowModal(!val);
+    if(accessToken){
+      const val=showModal;
+      setShowModal(!val);
+    }
   };
 
   return (

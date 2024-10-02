@@ -12,13 +12,10 @@ export const NoteCard = (props) => {
 
   const handlePinnedClick = (args) => {
     let tempNotes = notes.map((note) => {
-      if (note.id === args.id) {
+      if (note._id === args._id) {
+        console.log("I am here");
         let pinnedValue = note.isPinned;
-        if (pinnedValue === true) {
-          note = { ...note, isPinned: false };
-        } else if (pinnedValue === false) {
-          note = { ...note, isPinned: true };
-        }
+          note = { ...note, isPinned: !pinnedValue };        
       }
       return note;
     });
@@ -26,7 +23,7 @@ export const NoteCard = (props) => {
   };
   const handleArchivedClick = (args) => {
     let tempNotes = notes.map((note) => {
-      if (note.id === args.id) {
+      if (note._id === args._id) {
         let archivedValue = note.isArchived;
         if (archivedValue === true) {
           note = { ...note, isArchived: false };

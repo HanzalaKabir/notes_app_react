@@ -3,10 +3,13 @@ import React from "react";
 import { useState } from "react";
 import { useAccessToken } from "../../Context/";
 import { jwtDecode } from "jwt-decode";
+import { useNotes } from "../../Context/";
 
 export const LoginModal = () => {
   const [loginActive, setLoginActive] = useState(true);
   const [signupActive, setsignupActive] = useState(false);
+  const [submitClick, setSubmitClick] = useState(false);
+  const { setNotes } = useNotes();
 
   const [signupResponse, setSignupResponse] = useState("");
   const [loginResponse, setLoginResponse] = useState("");
@@ -56,13 +59,13 @@ export const LoginModal = () => {
     const responseMessage = data.msg;
     setSignupResponse(responseMessage);
     console.log(data);
-    handleSignUpClick();
+    //handleSignUpClick();
   };
 
   const handleLoginChange = (e) => {
     let { name, value } = e.target;
     setLoginData({ ...loginData, [name]: value });
-    //console.log(loginData);
+    console.log(loginData);
   };
 
   const handleLoginSubmitClick = async () => {
@@ -79,8 +82,8 @@ export const LoginModal = () => {
     const data = await response.json();
     //console.log(data);
     if (data.msg === "Authentication Successful") {
-      //console.log(data.token);
       const token = data.token;
+      console.log(token);
       setAccessToken(token);
       const decodedToken = jwtDecode(token);
       //console.log(decodedToken);
@@ -88,11 +91,6 @@ export const LoginModal = () => {
       setUsername(name);
       //console.log(name);
       console.log("Login successful");
-      var toStore = {
-        username: name,
-        token: token,
-      };
-      localStorage.setItem("Data", toStore);
     } else {
       console.log("Login failed");
       console.log(data.msg);
@@ -100,6 +98,12 @@ export const LoginModal = () => {
     const responseMessage = data.msg;
     setLoginResponse(responseMessage);
     handleLoginClick();
+  };
+
+  const handleLogoutClick = () => {
+    setAccessToken(null);
+    setUsername(null);
+    setNotes([]);
   };
 
   return (
@@ -122,11 +126,7 @@ export const LoginModal = () => {
           </div>
         ) : accessToken ? (
           <div className="login-signup-selector">
-            <span
-              className="selector login-btn-active"
-            >
-              Profile
-            </span>
+            <span className="selector login-btn-active">Profile</span>
           </div>
         ) : null}
 
@@ -154,7 +154,14 @@ export const LoginModal = () => {
             </div>
             <div className="login-message">{loginResponse}</div>
             <div className="btn-submit-container">
-              <button className="btn-submit" onClick={handleLoginSubmitClick}>
+              <button
+                className={`btn-submit ${
+                  submitClick ? "btn-submit-click" : ""
+                }`}
+                onClick={handleLoginSubmitClick}
+                onMouseOver={() => setSubmitClick(true)}
+                onMouseOut={() => setSubmitClick(false)}
+              >
                 Submit
               </button>
             </div>
@@ -163,7 +170,12 @@ export const LoginModal = () => {
           <div className="user-profile">
             <div className="user-profile-name">Username: {username}</div>
             <div className="user-profile-logout">
-              <span className="material-icons-outlined">logout</span>
+              <span
+                className="material-icons-outlined"
+                onClick={handleLogoutClick}
+              >
+                logout
+              </span>
             </div>
           </div>
         ) : null}

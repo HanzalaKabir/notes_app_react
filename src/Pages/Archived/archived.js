@@ -23,8 +23,8 @@ export const Archived = () => {
             <NoteCard
               title={note.title}
               note={note.note}
-              key={note.id}
-              id={note.id}
+              key={note._id}
+              _id={note._id}
               isPinned={note.isPinned}
               isArchived={note.isArchived}
             />

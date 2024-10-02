@@ -4,7 +4,7 @@ import { useNotes } from "../../Context";
 
 export function InputCard() {
   const variableObject = useNotes();
-  let { title, setTitle, inputNote, setInputNote, notes, setNotes, uuid } =
+  let { title, setTitle, inputNote, setInputNote, notes, setNotes } =
     variableObject;
   const handleTitleInputChange = (event) => {
     setTitle(event.target.value);
@@ -18,11 +18,11 @@ export function InputCard() {
       {
         title,
         note: inputNote,
-        id: uuid(),
         isPinned: false,
         isArchived: false,
       },
     ]);
+    
   };
   // console.log(notes);
   const handleAddButtonKeyUp = (event) => {
@@ -32,7 +32,6 @@ export function InputCard() {
         {
           title,
           note: inputNote,
-          id: uuid(),
           isPinned: false,
           isArchived: false,
         },

@@ -1,7 +1,6 @@
 import "./sidebar.css";
 import { AiOutlineHome } from "react-icons/ai";
 import { BiArchiveIn } from "react-icons/bi";
-import { MdLabelImportant } from "react-icons/md";
 import { ImBin2 } from "react-icons/im";
 import { NavLink } from "react-router-dom";
 
@@ -23,14 +22,6 @@ export const Sidebar = () => {
       >
         <BiArchiveIn className="icon" size="20" />
         Archive
-      </NavLink>
-
-      <NavLink
-        className={({ isActive }) => `${isActive ? "btn-active" : ""} btn`}
-        to="/important"
-      >
-        <MdLabelImportant className="icon" size="20" />
-        Important
       </NavLink>
 
       <NavLink

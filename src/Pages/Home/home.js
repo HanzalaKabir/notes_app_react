@@ -1,11 +1,12 @@
 import "./home.css";
+import { useRef } from "react";
 import { Header } from "../../components";
 import { Sidebar } from "../../components";
 import { InputCard } from "../../components";
 import { Footer } from "../../components";
 import { NoteCard } from "../../components";
 import { useNotes } from "../../Context";
-import { useFetchNotes } from "../../getNotes";
+import { useFetchNotes } from "../../services/getNotes";
 import { useAccessToken } from "../../Context";
 import { useEffect } from "react";
 import { LoginModal } from "../../components";
@@ -21,9 +22,14 @@ export const Home = () => {
   //   setShowModal(!val);
   // };
 
+  const accessTokenRef = useRef(accessToken);
+
   useEffect(() => {
-    fetchNotes();
-  }, [accessToken]);
+    if (accessTokenRef.current !== accessToken) {
+      fetchNotes();
+      accessTokenRef.current = accessToken;
+    }
+  }, [accessToken, fetchNotes]);
 
   const notPinned_Archived = notes.filter((note) => {
     return !note.isPinned && !note.isArchived;
@@ -40,7 +46,7 @@ export const Home = () => {
           <div>
             <Header />
           </div>
-          <LoginModal/>
+          <LoginModal />
         </div>
       ) : (
         <>
@@ -74,7 +80,7 @@ export const Home = () => {
                   <NoteCard
                     title={note.title}
                     note={note.note}
-                    key={note.id}
+                    key={note._id}
                     _id={note._id}
                     isPinned={note.isPinned}
                     isArchived={note.isArchived}

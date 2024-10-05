@@ -10,6 +10,7 @@ const NotesProvider = (props) => {
   const [title, setTitle] = useState("");
   const [inputNote, setInputNote] = useState("");
   const [notes, setNotes] = useState([]);
+  const [documentId, setDocumentId] = useState("");
 
   return (
     <NotesContext.Provider
@@ -20,6 +21,8 @@ const NotesProvider = (props) => {
         setInputNote,
         notes,
         setNotes,
+        documentId,
+        setDocumentId,
         uuid,
       }}
     >

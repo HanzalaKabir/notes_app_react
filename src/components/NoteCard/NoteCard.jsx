@@ -5,35 +5,45 @@ import { RiUnpinLine } from "react-icons/ri";
 import { ImBin2 } from "react-icons/im";
 import { MdOutlineUnarchive } from "react-icons/md";
 import { useNotes } from "../../Context/notesContext";
+import { useFetchNotes } from "../../services/getNotes";
+import { UpdateNote } from "../../services/updateNotes";
+import { useAccessToken } from "../../Context";
 
 export const NoteCard = (props) => {
   const variableObject = useNotes();
-  let { notes, setNotes } = variableObject;
+  let { notes } = variableObject;
+  const { accessToken } = useAccessToken();
+  const { documentId } = useNotes();
+
+  const fetchNotes = useFetchNotes();
 
   const handlePinnedClick = (args) => {
-    let tempNotes = notes.map((note) => {
+    notes.map(async (note) => {
       if (note._id === args._id) {
-        console.log("I am here");
-        let pinnedValue = note.isPinned;
-          note = { ...note, isPinned: !pinnedValue };        
+        let pinnedValue = !note.isPinned;
+        await UpdateNote({
+          noteId: args._id,
+          isPinned: pinnedValue,
+          accessToken,
+          documentId,
+        });
+        fetchNotes();
       }
-      return note;
     });
-    setNotes(tempNotes);
   };
   const handleArchivedClick = (args) => {
-    let tempNotes = notes.map((note) => {
+    notes.map(async (note) => {
       if (note._id === args._id) {
-        let archivedValue = note.isArchived;
-        if (archivedValue === true) {
-          note = { ...note, isArchived: false };
-        } else if (archivedValue === false) {
-          note = { ...note, isArchived: true };
-        }
+        let archivedValue = !note.isArchived;
+        await UpdateNote({
+          noteId: args._id,
+          isArchived: archivedValue,
+          accessToken,
+          documentId,
+        });
+        fetchNotes();
       }
-      return note;
     });
-    setNotes(tempNotes);
   };
   return (
     <div className="DisplayContainer">

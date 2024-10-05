@@ -24,7 +24,7 @@ export const useFetchNotes = () => {
       if (responseData.error) {
         console.log(responseData.error);
       } else {
-        console.log(responseData);
+        //console.log(responseData);
         setNotes(responseData.note);
         setDocumentId(responseData.DocumentId);
       }

@@ -79,16 +79,13 @@ export const LoginModal = () => {
       }
     );
     const data = await response.json();
-    //console.log(data);
     if (data.msg === "Authentication Successful") {
       const token = data.token;
-      console.log(token);
       setAccessToken(token);
       const decodedToken = jwtDecode(token);
       //console.log(decodedToken);
       const name = decodedToken.username;
       setUsername(name);
-      //console.log(name);
       console.log("Login successful");
     } else {
       console.log("Login failed");

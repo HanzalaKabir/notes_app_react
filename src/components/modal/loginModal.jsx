@@ -62,7 +62,6 @@ export const LoginModal = () => {
   const handleLoginChange = (e) => {
     let { name, value } = e.target;
     setLoginData({ ...loginData, [name]: value });
-    //console.log(loginData);
   };
 
   const handleLoginSubmitClick = async () => {
@@ -98,6 +97,7 @@ export const LoginModal = () => {
       console.log(data.msg);
     }
     const responseMessage = data.msg;
+
     setLoginResponse(responseMessage);
     handleLoginClick();
   };
@@ -122,11 +122,7 @@ export const LoginModal = () => {
           </div>
         ) : accessToken ? (
           <div className="login-signup-selector">
-            <span
-              className="selector login-btn-active"
-            >
-              Profile
-            </span>
+            <span className="selector login-btn-active">Profile</span>
           </div>
         ) : null}
 

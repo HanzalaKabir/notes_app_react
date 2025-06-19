@@ -129,7 +129,4 @@ export const Home = () => {
     </div>
   );
 };
-      )}
-    </div>
-  );
-};
+// Note: The delete button is currently a placeholder and does not have an icon.

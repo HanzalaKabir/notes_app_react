@@ -1,7 +1,6 @@
 import "./sidebar.css";
 import { AiOutlineHome } from "react-icons/ai";
 import { BiArchiveIn } from "react-icons/bi";
-import { ImBin2 } from "react-icons/im";
 import { NavLink } from "react-router-dom";
 
 export const Sidebar = () => {

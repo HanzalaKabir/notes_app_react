@@ -28,3 +28,20 @@ export const UpdateNote = async ({
     console.log(err);
   }
 };
+
+export const deleteNote = async ({ noteId, accessToken, documentId }) => {
+  try {
+    const response = await fetch(
+      `https://notes-app-backend-c0mr.onrender.com/api/notes/delete/${documentId}/${noteId}`,
+      {
+        method: "DELETE",
+        headers: {
+          Authorization: accessToken,
+        },
+      }
+    );
+    await response.json();
+  } catch (err) {
+    console.log(err);
+  }
+};

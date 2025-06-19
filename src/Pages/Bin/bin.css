@@ -1,0 +1,8 @@
+.binNotesContainer {
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 1em;
+}
+.binNotesHeading {
+  padding-left: 1em;
+}

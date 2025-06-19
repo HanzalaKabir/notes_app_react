@@ -10,6 +10,7 @@ import { useFetchNotes } from "../../services/getNotes";
 import { useAccessToken } from "../../Context";
 import { useEffect } from "react";
 import { LoginModal } from "../../components";
+import { deleteNote } from "../../services/updateNotes";
 
 export const Home = () => {
   const { notes } = useNotes();
@@ -30,6 +31,15 @@ export const Home = () => {
       accessTokenRef.current = accessToken;
     }
   }, [accessToken, fetchNotes]);
+
+  const handleDelete = async (note) => {
+    await deleteNote({
+      noteId: note._id,
+      accessToken,
+      documentId: note.documentId,
+    });
+    fetchNotes();
+  };
 
   const notPinned_Archived = notes.filter((note) => {
     return !note.isPinned && !note.isArchived;
@@ -60,14 +70,27 @@ export const Home = () => {
             <div className="pinnedNotesContainer NoteCard">
               {notPinned.length > 0 ? (
                 notPinned.map((note) => (
-                  <NoteCard
-                    title={note.title}
-                    note={note.note}
-                    key={note._id}
-                    _id={note._id}
-                    isPinned={note.isPinned}
-                    isArchived={note.isArchived}
-                  />
+                  <div key={note._id} style={{ position: "relative" }}>
+                    <NoteCard
+                      title={note.title}
+                      note={note.note}
+                      _id={note._id}
+                      isPinned={note.isPinned}
+                      isArchived={note.isArchived}
+                    />
+                    <button
+                      style={{
+                        position: "absolute",
+                        top: 5,
+                        right: 5,
+                        zIndex: 2,
+                      }}
+                      onClick={() => handleDelete(note)}
+                      aria-label="Delete"
+                    >
+                      🗑️
+                    </button>
+                  </div>
                 ))
               ) : (
                 <></>
@@ -77,14 +100,27 @@ export const Home = () => {
             <div className="NoteCard otherNotesContainer">
               {notPinned_Archived.length > 0 ? (
                 notPinned_Archived.map((note) => (
-                  <NoteCard
-                    title={note.title}
-                    note={note.note}
-                    key={note._id}
-                    _id={note._id}
-                    isPinned={note.isPinned}
-                    isArchived={note.isArchived}
-                  />
+                  <div key={note._id} style={{ position: "relative" }}>
+                    <NoteCard
+                      title={note.title}
+                      note={note.note}
+                      _id={note._id}
+                      isPinned={note.isPinned}
+                      isArchived={note.isArchived}
+                    />
+                    <button
+                      style={{
+                        position: "absolute",
+                        top: 5,
+                        right: 5,
+                        zIndex: 2,
+                      }}
+                      onClick={() => handleDelete(note)}
+                      aria-label="Delete"
+                    >
+                      🗑️
+                    </button>
+                  </div>
                 ))
               ) : (
                 <></>

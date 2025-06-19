@@ -76,7 +76,6 @@ export const NoteCard = (props) => {
               onClick={() => handleArchivedClick(props)}
             />
           )}
-          <ImBin2 className="noteIcons" />
         </div>
       </div>
     </div>

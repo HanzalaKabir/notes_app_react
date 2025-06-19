@@ -87,9 +87,7 @@ export const Home = () => {
                       }}
                       onClick={() => handleDelete(note)}
                       aria-label="Delete"
-                    >
-                      🗑️
-                    </button>
+                    ></button>
                   </div>
                 ))
               ) : (
@@ -117,9 +115,7 @@ export const Home = () => {
                       }}
                       onClick={() => handleDelete(note)}
                       aria-label="Delete"
-                    >
-                      🗑️
-                    </button>
+                    ></button>
                   </div>
                 ))
               ) : (
@@ -129,6 +125,10 @@ export const Home = () => {
           </div>
           <Footer />
         </>
+      )}
+    </div>
+  );
+};
       )}
     </div>
   );

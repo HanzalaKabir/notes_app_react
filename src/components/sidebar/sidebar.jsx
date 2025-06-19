@@ -23,14 +23,6 @@ export const Sidebar = () => {
         <BiArchiveIn className="icon" size="20" />
         Archive
       </NavLink>
-
-      <NavLink
-        className={({ isActive }) => `${isActive ? "btn-active" : ""} btn`}
-        to="/bin"
-      >
-        <ImBin2 className="icon" size="20" />
-        Bin
-      </NavLink>
     </div>
   );
 };

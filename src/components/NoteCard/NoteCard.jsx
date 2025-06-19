@@ -2,7 +2,6 @@ import "./NoteCard.css";
 import { BsPinFill } from "react-icons/bs";
 import { BiArchiveIn } from "react-icons/bi";
 import { RiUnpinLine } from "react-icons/ri";
-import { ImBin2 } from "react-icons/im";
 import { MdOutlineUnarchive } from "react-icons/md";
 import { useNotes } from "../../Context/notesContext";
 import { useFetchNotes } from "../../services/getNotes";
